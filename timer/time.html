@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #timer {
+            font-size: 48px;
+            margin: 20px 0;
+        }
+        select {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pomodoro Timer</h1>
+        <select id="sessionSelect">
+            <option value="25">25 min work / 5 min break</option>
+            <option value="45">45 min work / 10 min break</option>
+            <option value="50">50 min work / 10 min break</option>
+        </select>
+        <div id="timer">25:00</div>
+        <button id="start">Start</button>
+        <button id="reset">Reset</button>
+    </div>
+    <audio id="endSound" src="sound.wav"></audio>
+    <script>
+        let timer;
+        let isRunning = false;
+        let workTime = 25 * 60; // Default to 25 minutes in seconds
+        let breakTime = 5 * 60; // Default to 5 minutes in seconds
+        let timeLeft = workTime;
+
+        const timerDisplay = document.getElementById('timer');
+        const startButton = document.getElementById('start');
+        const resetButton = document.getElementById('reset');
+        const sessionSelect = document.getElementById('sessionSelect');
+        const endSound = document.getElementById('endSound');
+
+        function updateDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            if (isRunning) return;
+            isRunning = true;
+
+            timer = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    updateDisplay();
+                } else {
+                    clearInterval(timer);
+                    isRunning = false;
+                    endSound.play();
+                    alert("Time's up!");
+                    // Switch to break time
+                    timeLeft = breakTime;
+                    updateDisplay();
+                    startBreak();
+                }
+            }, 1000);
+        }
+
+        function startBreak() {
+            isRunning = true;
+            timer = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    updateDisplay();
+                } else {
+                    clearInterval(timer);
+                    isRunning = false;
+                    endSound.play();
+                    alert("Break's over!");
+                    resetTimer();
+                }
+            }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            isRunning = false;
+            const selectedValue = parseInt(sessionSelect.value);
+            workTime = selectedValue * 60; // Convert to seconds
+            breakTime = selectedValue === 25 ? 5 * 60 : 10 * 60; // Set break time based on selection
+            timeLeft = workTime; // Reset to work time
+            updateDisplay();
+        }
+
+        sessionSelect.addEventListener('change', resetTimer);
+        startButton.addEventListener('click', startTimer);
+        resetButton.addEventListener('click', resetTimer);
+
+        // Initialize display
+        updateDisplay();
+    </script>
+</body>
+</html>
