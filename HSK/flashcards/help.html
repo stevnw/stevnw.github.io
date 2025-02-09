@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSK Help & About</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0; 
+			zoom: 1.5;
+			background: #F0F0F0 
+			font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            min-height: 100vh; 
+            padding-top: 50px; 
+        }
+
+        .content-box {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 600px; 
+            max-width: 90%; 
+			font-family: Arial, sans-serif;
+        }
+		img {
+            max-width: 100%; 
+            height: auto; 
+        }
+
+        .center {
+            display: block; 
+            margin: 0 auto; 
+        }
+
+        .left {
+            display: block; 
+            margin: 0; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content-box">
+            <a href="javascript:history.back()">←Back</a>
+					
+					<h1>Help & About</h1>
+					
+					<h2>This App</h2>
+					
+					<p>This is inteneded to be used for what I refer to as "brute force exposure" - in which is basically just exposing yourself to words over and over and they will stick (or at least they do for me).</p>
+					<p>My intent is for you to pick a set of vocab, and then focus on it for a period of time (i.e. 1 week, 2 weeks - its entirely up to you). After you feel comfortable with these, move onto another set - and come back to the previous set periodically. It's essentially like spaced repitition but without an algorithm or daily streaks dictating your life.</p>
+					<p>Each set of vocab consists of ~25 words in order as they appear in the official HSK 3.0 document. I have added to the dataset by including both simplified and traditional characters, a pinyin reading, and alternative tone reading, the zhuyin reading and the meaning. All of this information was obtained via cross checking between multiple dictionaries.</p>
+					<p>The only order of vocab I plan to implement is that of randomness - as I think it is beneficial to not have a standard order. This is due to learning the order instead of actually learning the vocab.</p>
+					
+					<h2>HSK Format</h2>
+					
+					<p>The Hanyu Shuiping Kaoshi (HSK) aka Chinese proficiency test is the standardised test for China. I chose to follow this for learning vocab as it is mostly in a way that makes sense and a lot of other material will work well in conjuncture with it (e.g. textbooks, HSK focused videos, courses, etc.).</p>
+					<p>HSK is split into main 6 levels of which cover the stages of beginner up to intermediate. Within these 6 levels, you're expected to learn around 5.4k words total. Previously vocabulary was drip fed, but as of HSK 3.0 the load is more spread out. Here is it all graphed:</p>
+					<img src="../images/fig1.png" class="center" height="656" width="405">
+					<br>
+					<img src="../images/fig2.png" class="center" height="656" width="405">
+					<br>
+					<p>Now I get it can be quite overwhelming - that sounds like a lot of words, and it is. Chinese is a hard language, mostly due to how different it is from English. However, I believe if you are motivated enough, consistent and have tangible achieveable goals in mind (e.g. Pass HSK 3), then you will be fine.</p>
+					
+					<h2>Motivation</h2>
+					<p>I would encourage you at this point (assuming you are reading this at the start of your journey - if not maybe reflect on them) to write down your goals for the language. It's a big commitment of time, of which will have many highs and lows. Sometimes you may start to question why you are even bothering. Having these goals written down somewhere which you can refer to can be a good thing to keep you motivated or on track.</p>
+					
+					<h2>Acknowledgements</h2>
+					<p>Thanks to <a href="https://github.com/elkmovie/hsk30">elkmovie</a> on Github for providing a .txt file of the list vocab list of the official HSK vocabulary list.</p>
+					<p>Thanks to myself for having far too much free time during holidays (in which is when I make/made the most progress on this).</p>
+					
+					<h2>Other</h2>
+					<p>The <a href="https://github.com/Stev6E/HSK_Mandarin_Vocab_App">GitHub repo</a></p>
+					
+					
+            
+        </div>
+    </div>
+</body>
+</html>
