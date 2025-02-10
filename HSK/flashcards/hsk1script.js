@@ -84,18 +84,88 @@ const wordSets = { // 1 - 25
 		{ simp:"第", trad: "第（第二）", pinyin: "dì", pinyinalt: "di4", zhuyin: "ㄉㄧˋ", meaning: "(prefix before a number, for ordering numbers - e.g. 第二 = second)" }
 
 	],
-	4: [
-		
-		{ trad:"服務", simp: "服务", pinyin: "fúwù", meaning: "be in the service of, serve" }
+	4: [ // 76 - 100
+		{ simp:"点", trad: "點", pinyin: "diǎn", pinyinalt: "dian3", zhuyin: "ㄉㄧㄢˇ", meaning: "o'clock, point, dot, (decimal) point" },
+		{ simp:"电", trad: "電", pinyin: "diàn", pinyinalt: "dian4", zhuyin: "ㄉㄧㄢˋ", meaning: "electric, electricity, electrical" },
+		{ simp:"电话", trad: "電話", pinyin: "diàn huà", pinyinalt: "dian4 hua4", zhuyin: "ㄉㄧㄢˋ ㄏㄨㄚˋ", meaning: "telephone, phone call, phone number" },
+		{ simp:"电脑", trad: "電腦", pinyin: "diàn nǎo", pinyinalt: "dian4 nao3", zhuyin: "ㄉㄧㄢˋ ㄋㄠˇ", meaning: "computer" },
+		{ simp:"电视", trad: "電視", pinyin: "diàn shì", pinyinalt: "dian4 shi4", zhuyin: "ㄉㄧㄢˋ ㄕˋ", meaning: "television" },
+		{ simp:"电视机", trad: "電視機", pinyin: "diàn shì jī", pinyinalt: "dian4 shi4 ji1", zhuyin: "ㄉㄧㄢˋ ㄕˋ ㄐㄧ", meaning: "television set" },
+		{ simp:"电影", trad: "電影", pinyin: "diàn yǐng", pinyinalt: "dian4 ying3", zhuyin: "ㄉㄧㄢˋ ㄧㄥˇ", meaning: "movie, film" },
+		{ simp:"电影院", trad: "電影院", pinyin: "diàn yǐng yuàn", pinyinalt: "dian4 ying3 yuan4", zhuyin: "ㄉㄧㄢˋ ㄧㄥˇ ㄩㄢˋ", meaning: "cinema, movie theater" },
+		{ simp:"东", trad: "東", pinyin: "dōng", pinyinalt: "dong1", zhuyin: "ㄉㄨㄥ", meaning: "east" },
+		{ simp:"东边", trad: "東邊", pinyin: "dōng biān", pinyinalt: "dong1 bian1", zhuyin: "ㄉㄨㄥ ㄅㄧㄢ", meaning: "east, east side, eastern part, to the east of" },
+		{ simp:"东西", trad: "東西", pinyin: "dōng xī", pinyinalt: "dong1 xi1", zhuyin: "ㄉㄨㄥ ㄒㄧ", meaning: "thing, stuff, east and west" },
+		{ simp:"动", trad: "動", pinyin: "dòng", pinyinalt: "dong4", zhuyin: "ㄉㄨㄥˋ", meaning: "to use, to act, to move, to change" },
+		{ simp:"动作", trad: "動作", pinyin: "dòng zuò", pinyinalt: "dong4 zuo4", zhuyin: "ㄉㄨㄥˋ ㄗㄨㄛˋ", meaning: "movement, motion, action" },
+		{ simp:"都", trad: "都", pinyin: "dōu", pinyinalt: "dou1", zhuyin: "ㄉㄡ", meaning: "all, both, entirely (due to)" },
+		{ simp:"读", trad: "讀", pinyin: "dú", pinyinalt: "du2", zhuyin: "ㄉㄨˊ", meaning: "to read, to study" },
+		{ simp:"读书", trad: "讀書", pinyin: "dú shū", pinyinalt: "du2 shu1", zhuyin: "ㄉㄨˊ ㄕㄨ", meaning: "to read a book, to study" },
+		{ simp:"对", trad: "對", pinyin: "duì", pinyinalt: "dui4", zhuyin: "ㄉㄨㄟˋ", meaning: "right, correct (answer), to reply, couple, pair, to oppose, to face" },
+		{ simp:"对不起", trad: "對不起", pinyin: "duì bù qǐ", pinyinalt: "dui4 bu4 qi3", zhuyin: "ㄉㄨㄟˋ ㄅㄨˋ ㄑㄧˇ", meaning: "I'm sorry, excuse me, pardon me, sorry? (please repeat)" },
+		{ simp:"多", trad: "多", pinyin: "duō", pinyinalt: "duo1", zhuyin: "ㄉㄨㄛ", meaning: "many, much, a lot of, numerous, multi-" },
+		{ simp:"多少", trad: "多少", pinyin: "duō shao", pinyinalt: "duo1 shao", zhuyin: "ㄉㄨㄛ ㄕㄠ˙", meaning: "amount, how much? how many? somewhat" },
+		{ simp:"饿", trad: "餓", pinyin: "è", pinyinalt: "e4", zhuyin: "ㄜˋ", meaning: "to be hungry, hungry" },
+		{ simp:"儿子", trad: "兒子", pinyin: "ér zi", pinyinalt: "er2 zi", zhuyin: "ㄦˊ ㄗ˙", meaning: "son" },
+		{ simp:"二", trad: "二", pinyin: "èr", pinyinalt: "er4", zhuyin: "ㄦˋ", meaning: "two / 2" },
+		{ simp:"饭", trad: "飯", pinyin: "fàn", pinyinalt: "fan4", zhuyin: "ㄈㄢˋ", meaning: "food, cuisine, cooked rice, meal" },
+		{ simp:"饭店", trad: "飯店", pinyin: "fàn diàn", pinyinalt: "fan4 dian4", zhuyin: "ㄈㄢˋ ㄉㄧㄢˋ", meaning: "restaurant, hotel" }	
 	],
 	
-	5: [
-		
-		{ trad:"一定", simp: "一定", pinyin: "yīdìng", meaning: "must" }
+	5: [ // 101 - 125
+		{ simp:"房间", trad: "房間", pinyin: "fáng jiān", pinyinalt: "fang2 jian1", zhuyin: "ㄈㄤˊ ㄐㄧㄢ", meaning: "room" },
+		{ simp:"房子", trad: "房子", pinyin: "fáng zi", pinyinalt: "fang2 zi", zhuyin: "ㄈㄤˊ ㄗ˙", meaning: "house, building (single- / two-story), apartment, room" },
+		{ simp:"放", trad: "放", pinyin: "fàng", pinyinalt: "fang4", zhuyin: "ㄈㄤˋ", meaning: "to release, to free, to let go, discharge, to put, to place, to let out" },
+		{ simp:"放假", trad: "放假", pinyin: "fàng jià", pinyinalt: "fang4 jia4", zhuyin: "ㄈㄤˋ ㄐㄧㄚˋ", meaning: "to have a holiday/vacation" },
+		{ simp:"放学", trad: "放學", pinyin: "fàng xué", pinyinalt: "fang4 xue2", zhuyin: "ㄈㄤˋ ㄒㄩㄝˊ", meaning: "to dismiss students" },
+		{ simp:"飞", trad: "飛", pinyin: "fēi", pinyinalt: "fei1", zhuyin: "ㄈㄟ", meaning: "to fly" },
+		{ simp:"飞机", trad: "飛機", pinyin: "fēi jī", pinyinalt: "fei1 ji1", zhuyin: "ㄈㄟ ㄐㄧ", meaning: "airplane" },
+		{ simp:"非常", trad: "非常", pinyin: "fēi cháng", pinyinalt: "fei1 chang2", zhuyin: "ㄈㄟ ㄔㄤˊ", meaning: "very, very much, unusual, extraordinary" },
+		{ simp:"分", trad: "分", pinyin: "fēn", pinyinalt: "fen1", zhuyin: "ㄈㄣ", meaning: "to divide, minute, to part" },
+		{ simp:"风", trad: "風", pinyin: "fēng", pinyinalt: "feng1", zhuyin: "ㄈㄥ", meaning: "wind, news, style, custom, manner" },
+		{ simp:"干", trad: "乾", pinyin: "gān", pinyinalt: "gan1", zhuyin: "ㄍㄢ", meaning: "dry, to concern, shield, to work, to do, to manage" },
+		{ simp:"干净", trad: "乾淨", pinyin: "gān jìng", pinyinalt: "gan1 jing4", zhuyin: "ㄍㄢ ㄐㄧㄥˋ", meaning: "clean, neat" },
+		{ simp:"干", trad: "幹", pinyin: "gàn", pinyinalt: "gan4", zhuyin: "ㄍㄢˋ", meaning: "tree trunk, main part of something, to kill (slang), to fuck (vulgar)" },
+		{ simp:"干什么", trad: "幹什麼", pinyin: "gàn shén me", pinyinalt: "gan4 shen2 me", zhuyin: "ㄍㄢˋ ㄕㄣˊ ㄇㄜ˙", meaning: "what are you doing?, what's he up to?" },
+		{ simp:"高", trad: "高", pinyin: "gāo", pinyinalt: "gao1", zhuyin: "ㄍㄠ", meaning: "high, tall" },
+		{ simp:"高兴", trad: "高興", pinyin: "gāo xìng", pinyinalt: "gao1 xing4", zhuyin: "ㄍㄠ ㄒㄧㄥˋ", meaning: "happy, glad, willing (to do something), in a cheerful mood" },
+		{ simp:"告诉", trad: "告訴", pinyin: "gào su", pinyinalt: "gao4 su", zhuyin: "ㄍㄠˋ ㄙㄨˋ", meaning: "to press charges, to file a complaint, to tell, to inform, to let know" },
+		{ simp:"哥哥 / 哥", trad: "哥", pinyin: "gē", pinyinalt: "ge1", zhuyin: "ㄍㄜ", meaning: "older brother" },
+		{ simp:"歌", trad: "歌", pinyin: "gē", pinyinalt: "ge1", zhuyin: "ㄍㄜ", meaning: "song, to sing" },
+		{ simp:"个", trad: "個", pinyin: "gè", pinyinalt: "ge4", zhuyin: "ㄍㄜˋ", meaning: "individual, this, that, size, classifier for people or objects in general" },
+		{ simp:"给", trad: "給", pinyin: "gěi", pinyinalt: "gei3", zhuyin: "ㄍㄟˇ", meaning: "to, for, for the benefit of, to give, to allow, to do something (for somebody)" },
+		{ simp:"跟", trad: "跟", pinyin: "gēn", pinyinalt: "gen1", zhuyin: "ㄍㄣ", meaning: "to follow, to go with, heel, with" },
+		{ simp:"工人", trad: "工人", pinyin: "gōng rén", pinyinalt: "gong1 ren2", zhuyin: "ㄍㄨㄥ ㄖㄣˊ", meaning: "worker" },
+		{ simp:"工作", trad: "工作", pinyin: "gōng zuò", pinyinalt: "gong1 zuo4", zhuyin: "ㄍㄨㄥ ㄗㄨㄛˋ", meaning: "to work, to operate (a machine), job, work, task" },
+		{ simp:"关", trad: "關", pinyin: "guān", pinyinalt: "guan1", zhuyin: "ㄍㄨㄢ", meaning: "mountain pass, to close, to shut, to turn off, to concern, to involve" }
 	],
-	6: [
+	6: [ // 126 - 150
+		{ simp:"关上", trad: "關上", pinyin: "guān shàng", pinyinalt: "guan1 shang4", zhuyin: "ㄍㄨㄢ ㄕㄤˋ", meaning: "to close (a door), to turn off (light, electrical equipment, etc)" },
+		{ simp:"贵", trad: "貴", pinyin: "guì", pinyinalt: "gui4", zhuyin: "ㄍㄨㄟˋ", meaning: "expensive, noble, your (name), precious" },
+		{ simp:"国", trad: "國", pinyin: "guó", pinyinalt: "guo2", zhuyin: "ㄍㄨㄛˊ", meaning: "country, state, nation" },
+		{ simp:"国家", trad: "國家", pinyin: "guó jiā", pinyinalt: "guo2 jia1", zhuyin: "ㄍㄨㄛˊ ㄐㄧㄚ", meaning: "country, nation, state" },
+		{ simp:"国外", trad: "國外", pinyin: "guó wài", pinyinalt: "guo2 wai4", zhuyin: "ㄍㄨㄛˊ ㄨㄞˋ", meaning: "abroad, external (affairs), overseas, foreign" },
+		{ simp:"过", trad: "過", pinyin: "guò", pinyinalt: "guo4", zhuyin: "ㄍㄨㄛˋ", meaning: "to cross, to go over, to pass (time), to celebrate (a holiday)" },
+		{ simp:"还", trad: "還", pinyin: "hái", pinyinalt: "hai2", zhuyin: "ㄏㄞˊ", meaning: "also, in addition, more, still, else, even more, yet, (not) yet" },
+		{ simp:"还是", trad: "還是", pinyin: "hái shi", pinyinalt: "hai2 shi", zhuyin: "ㄏㄞˊ ㄕ˙", meaning: "or, still, nevertheless, had better" },
+		{ simp:"还有", trad: "還有", pinyin: "hái yǒu", pinyinalt: "hai2 you3", zhuyin: "ㄏㄞˊ ㄧㄡˇ", meaning: "furthermore, in addition, still, also" },
+		{ simp:"孩子", trad: "孩子", pinyin: "hái zi", pinyinalt: "hai2 zi", zhuyin: "ㄏㄞˊ ㄗ˙", meaning: "child" },
+		{ simp:"汉语", trad: "漢語", pinyin: "hàn yǔ", pinyinalt: "han4 yu3", zhuyin: "ㄏㄢˋ ㄩˇ", meaning: "Chinese language" },
+		{ simp:"汉字", trad: "漢字", pinyin: "hàn zì", pinyinalt: "han4 zi4", zhuyin: "ㄏㄢˋ ㄗˋ", meaning: "Chinese character" },
+		{ simp:"好", trad: "好", pinyin: "hǎo", pinyinalt: "hao3", zhuyin: "ㄏㄠˇ", meaning: "good, well, proper, good to, easy to" },
+		{ simp:"好吃", trad: "好吃", pinyin: "hào chī", pinyinalt: "hao4 chi1", zhuyin: "ㄏㄠˋ ㄔ", meaning: "tasty, delicious, to be fond of eating, to be gluttonous" },
+		{ simp:"好看", trad: "好看", pinyin: "hǎo kàn", pinyinalt: "hao3 kan4", zhuyin: "ㄏㄠˇ ㄎㄢˋ", meaning: "good-looking, nice-looking, good (of a movie, book, TV show, etc), embarrassed, humiliated" },
+		{ simp:"好听", trad: "好聽", pinyin: "hǎo tīng", pinyinalt: "hao3 ting1", zhuyin: "ㄏㄠˇ ㄊㄧㄥ", meaning: "pleasant to hear" },
+		{ simp:"好玩儿", trad: "好玩兒", pinyin: "hǎo wán er", pinyinalt: "hao3 wan2 er", zhuyin: "ㄏㄠˇㄨㄢˊㄦ˙", meaning: "interesting, delightful, amusing" },
+		{ simp:"号", trad: "號", pinyin: "hào", pinyinalt: "hao4", zhuyin: "ㄏㄠˋ", meaning: "ordinal number, day of a month, mark, sign" },
+		{ simp:"喝", trad: "喝", pinyin: "hē", pinyinalt: "he1", zhuyin: "ㄏㄜ", meaning: "to drink" },
+		{ simp:"和", trad: "和", pinyin: "hé", pinyinalt: "he2", zhuyin: "ㄏㄜˊ", meaning: "and, together with, with, sum, union" },
+		{ simp:"很", trad: "很", pinyin: "hěn", pinyinalt: "hen3", zhuyin: "ㄏㄣˇ", meaning: "very, quite" },
+		{ simp:"后", trad: "後", pinyin: "hòu", pinyinalt: "hou4", zhuyin: "ㄏㄡˋ", meaning: "back, behind, rear, after, empress, queen" },
+		{ simp:"后边", trad: "後邊", pinyin: "hòu bian", pinyinalt: "hou4 bian", zhuyin: "ㄏㄡˋ ㄅㄧㄢ˙", meaning: "back, rear, behind" },
+		{ simp:"后天", trad: "後天", pinyin: "hòu tiān", pinyinalt: "hou4 tian1", zhuyin: "ㄏㄡˋ ㄊㄧㄢ", meaning: "the day after tomorrow" },
+		{ simp:"花", trad: "花", pinyin: "huā", pinyinalt: "hua1", zhuyin: "ㄏㄨㄚ", meaning: "flower, blossom, florid, to spend (money, time)" }
 		
-		{ trad:"十", simp: "十", pinyin: "shí", meaning: "det.: ten" }
 	]
 };
 
