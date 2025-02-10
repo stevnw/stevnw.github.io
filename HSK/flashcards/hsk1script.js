@@ -1,35 +1,35 @@
 // This is probably a really fucking stupid way to do it - but I do not want it to need a local http server running to use it - I just want something that runs at a click with no extra bollocks.
 const wordSets = { // 1 - 25
     1: [
-        { simp:"爱", trad: "愛", pinyin: "ài", pinyinalt: "ai4", zhuyin: "ㄞˋ", meaning: "to love, affection, to be fond of, to like", audio: "../audio/zh-ai4.mp3"  },
-        { simp:"爱好", trad: "愛好", pinyin: "ài hǎo", pinyinalt: "ai4 hao3", zhuyin: "ㄞˋ ㄏㄠˇˋ", meaning: "to like, to take pleasure in, keen on, fond of, interest", audio: "../audio/zh-ai4hao3.mp3"  },
-		{ simp:"八", trad: "八", pinyin: "bā", pinyinalt: "ba1", zhuyin: "ㄅㄚ", meaning: "eight / 8", audio: "../audio/zh-ba1.mp3" },
-		{ simp:"爸爸｜爸", trad: "爸", pinyin: "bà", pinyinalt: "ba4", zhuyin: "ㄅㄚˋ", meaning: "father, dad, pa, papa", audio: "../audio/zh-ba4ba.mp3" },		
-		{ simp:"吧", trad: "吧", pinyin: "ba", pinyinalt: "ba", zhuyin: "ㄅㄚ", meaning: "modal particle indicating suggestion or surmise: ...ok?, ...right?" , audio: "../audio/zh-ba.mp3"},
-		{ simp:"白（形）", trad: "白", pinyin: "bái", pinyinalt: "bai2", zhuyin: "ㄅㄞˊ", meaning: "white, snowy, empty, blank, clear, bright", audio: "../audio/zh-bai2.mp3" },
-		{ simp:"白天", trad: "白天", pinyin: "bái tiān", pinyinalt: "bai2 tian1", zhuyin: "ㄅㄞˊ ㄊㄧㄢ", meaning: "daytime, during the day", audio: "../audio/zh-bai2tian1.mp3" },
-		{ simp:"百", trad: "百", pinyin: "bǎi", pinyinalt: "bai3", zhuyin: "ㄅㄞˇ", meaning: "hundred" , audio: "../audio/zh-bai3.mp3"},
-		{ simp:"班", trad: "班", pinyin: "bān", pinyinalt: "ban1", zhuyin: "ㄅㄢ", meaning: "team, class, rank, squad, a work shift", audio: "../audio/zh-ban1.mp3" },
-		{ simp:"半", trad: "半", pinyin: "bàn ", pinyinalt: "ban4", zhuyin: "ㄅㄢˋ", meaning: "half, semi-, incomplete, x and a half", audio: "../audio/zh-ban4.mp3" },
-		{ simp:"半年", trad: "半年", pinyin: "bàn nián ", pinyinalt: "ban4 nian2", zhuyin: "ㄅㄢˋ ㄋㄧㄢˊ", meaning: "half a year", audio: "../audio/zh-ban4nian2.mp3" },
-		{ simp:"半天", trad: "半天", pinyin: "bàn tiān ", pinyinalt: "ban4 tian1", zhuyin: "ㄅㄢˋ ㄊㄧㄢ", meaning: "half of the day, a long time, quite a while, midair", audio: "../audio/zh-ban4tian1.mp3" },
-		{ simp:"帮", trad: "幫", pinyin: "bāng ", pinyinalt: "bang1", zhuyin: "ㄅㄤ", meaning: "to assist, to support, to help, group, gang, party", audio: "../audio/zh-bang1.mp3" },
-		{ simp:"帮忙", trad: "幫忙", pinyin: "bāng  máng", pinyinalt: "bang1 mang2", zhuyin: "ㄅㄤ ㄇㄤˊ", meaning: "to help, to lend a hand, to do a favor", audio: "../audio/zh-bang1mang2.mp3" },
-		{ simp:"包", trad: "包", pinyin: "bāo", pinyinalt: "bao1", zhuyin: "ㄅㄠ", meaning: "to cover, to wrap, to hold, to include, package, wrapper, container", audio: "../audio/zh-bao1.mp3" },
-		{ simp:"包子", trad: "包子", pinyin: "bāo zi", pinyinalt: "bao1 zi", zhuyin: "ㄅㄠ ㄗ˙", meaning: "steamed stuffed bun", audio: "../audio/zh-bao1zi.mp3" },
-		{ simp:"杯", trad: "杯", pinyin: "bēi", pinyinalt: "bei1", zhuyin: "ㄅㄟ", meaning: "cup (e.g. trophy, container of liquid)", audio: "../audio/zh-bei1.mp3" },
-		{ simp:"杯子", trad: "杯子", pinyin: "bēi zi", pinyinalt: "bei1 zi", zhuyin: "ㄅㄟ ㄗ˙", meaning: "cup, glass", audio: "../audio/zh-bei1zi.mp3" },
-		{ simp:"北", trad: "北", pinyin: "běi", pinyinalt: "bei3", zhuyin: "ㄅㄟˇ", meaning: "north", audio: "../audio/zh-bei3.mp3" },
-		{ simp:"北边", trad: "北邊", pinyin: "běi biān", pinyinalt: "bei3 bian1", zhuyin: "ㄅㄟˇ ㄅㄧㄢ", meaning: "north, north side, northern part, to the north of" , audio: "../audio/zh-bei3bian1.mp3"},
-		{ simp:"北京", trad: "北京", pinyin: "běi jīng", pinyinalt: "bei3 jing1", zhuyin: "ㄅㄟˇ ㄐㄧㄥ", meaning: "Beijing, capital of China" , audio: "../audio/zh-bei3jing1.mp3"},
-		{ simp:"本（量）", trad: "本", pinyin: "běn", pinyinalt: "ben3", zhuyin: "ㄅㄣˇ", meaning: "origin, source, roots/stems of pants, basis, foundation", audio: "../audio/zh-ben3.mp3" },
+        { simp:"爱", trad: "愛", pinyin: "ài", pinyinalt: "ai4", zhuyin: "ㄞˋ", meaning: "to love, affection, to be fond of, to like"},
+        { simp:"爱好", trad: "愛好", pinyin: "ài hǎo", pinyinalt: "ai4 hao3", zhuyin: "ㄞˋ ㄏㄠˇˋ", meaning: "to like, to take pleasure in, keen on, fond of, interest"},
+		{ simp:"八", trad: "八", pinyin: "bā", pinyinalt: "ba1", zhuyin: "ㄅㄚ", meaning: "eight / 8"},
+		{ simp:"爸爸 / 爸", trad: "爸", pinyin: "bà", pinyinalt: "ba4", zhuyin: "ㄅㄚˋ", meaning: "father, dad, pa, papa"},		
+		{ simp:"吧", trad: "吧", pinyin: "ba", pinyinalt: "ba", zhuyin: "ㄅㄚ", meaning: "modal particle indicating suggestion or surmise: ...ok?, ...right?"},
+		{ simp:"白", trad: "白", pinyin: "bái", pinyinalt: "bai2", zhuyin: "ㄅㄞˊ", meaning: "white, snowy, empty, blank, clear, bright"},
+		{ simp:"白天", trad: "白天", pinyin: "bái tiān", pinyinalt: "bai2 tian1", zhuyin: "ㄅㄞˊ ㄊㄧㄢ", meaning: "daytime, during the day"},
+		{ simp:"百", trad: "百", pinyin: "bǎi", pinyinalt: "bai3", zhuyin: "ㄅㄞˇ", meaning: "hundred"},
+		{ simp:"班", trad: "班", pinyin: "bān", pinyinalt: "ban1", zhuyin: "ㄅㄢ", meaning: "team, class, rank, squad, a work shift"},
+		{ simp:"半", trad: "半", pinyin: "bàn ", pinyinalt: "ban4", zhuyin: "ㄅㄢˋ", meaning: "half, semi-, incomplete, x and a half"},
+		{ simp:"半年", trad: "半年", pinyin: "bàn nián ", pinyinalt: "ban4 nian2", zhuyin: "ㄅㄢˋ ㄋㄧㄢˊ", meaning: "half a year"},
+		{ simp:"半天", trad: "半天", pinyin: "bàn tiān ", pinyinalt: "ban4 tian1", zhuyin: "ㄅㄢˋ ㄊㄧㄢ", meaning: "half of the day, a long time, quite a while, midair"},
+		{ simp:"帮", trad: "幫", pinyin: "bāng ", pinyinalt: "bang1", zhuyin: "ㄅㄤ", meaning: "to assist, to support, to help, group, gang, party"},
+		{ simp:"帮忙", trad: "幫忙", pinyin: "bāng  máng", pinyinalt: "bang1 mang2", zhuyin: "ㄅㄤ ㄇㄤˊ", meaning: "to help, to lend a hand, to do a favor"},
+		{ simp:"包", trad: "包", pinyin: "bāo", pinyinalt: "bao1", zhuyin: "ㄅㄠ", meaning: "to cover, to wrap, to hold, to include, package, wrapper, container"},
+		{ simp:"包子", trad: "包子", pinyin: "bāo zi", pinyinalt: "bao1 zi", zhuyin: "ㄅㄠ ㄗ˙", meaning: "steamed stuffed bun"},
+		{ simp:"杯", trad: "杯", pinyin: "bēi", pinyinalt: "bei1", zhuyin: "ㄅㄟ", meaning: "cup (e.g. trophy, container of liquid)"},
+		{ simp:"杯子", trad: "杯子", pinyin: "bēi zi", pinyinalt: "bei1 zi", zhuyin: "ㄅㄟ ㄗ˙", meaning: "cup, glass"},
+		{ simp:"北", trad: "北", pinyin: "běi", pinyinalt: "bei3", zhuyin: "ㄅㄟˇ", meaning: "north"},
+		{ simp:"北边", trad: "北邊", pinyin: "běi biān", pinyinalt: "bei3 bian1", zhuyin: "ㄅㄟˇ ㄅㄧㄢ", meaning: "north, north side, northern part, to the north of"},
+		{ simp:"北京", trad: "北京", pinyin: "běi jīng", pinyinalt: "bei3 jing1", zhuyin: "ㄅㄟˇ ㄐㄧㄥ", meaning: "Beijing, capital of China" },
+		{ simp:"本", trad: "本", pinyin: "běn", pinyinalt: "ben3", zhuyin: "ㄅㄣˇ", meaning: "origin, source, roots/stems of pants, basis, foundation"},
 		{ simp:"本子", trad: "本子", pinyin: "běn zi", pinyinalt: "ben3 zi", zhuyin: "ㄅㄣˇ ㄗ˙", meaning: "book, notebook, edition" , audio: "../audio/zh-ben3zi.mp3"},
-		{ simp:"比", trad: "比", pinyin: "bǐ", pinyinalt: "bi3", zhuyin: "ㄅㄧˇ", meaning: "particle: for comparison and '-er than', to compare, to contrast, associated with ", audio: "../audio/zh-bi3.mp3" },
-		{ simp:"别（副）", trad: "別", pinyin: "bié", pinyinalt: "bie2", zhuyin: "ㄅㄧㄝˊ", meaning: "leave, depart, seperate, distinguish, seperate, classify, do not, must not" , audio: "../audio/zh-bie2.mp3"}
+		{ simp:"比", trad: "比", pinyin: "bǐ", pinyinalt: "bi3", zhuyin: "ㄅㄧˇ", meaning: "particle: for comparison and '-er than', to compare, to contrast, associated with "},
+		{ simp:"別", trad: "別", pinyin: "bié", pinyinalt: "bie2", zhuyin: "ㄅㄧㄝˊ", meaning: "leave, depart, seperate, distinguish, seperate, classify, do not, must not" }
 	],
     2: [ // 26 - 50
         
-		{ simp:"别的", trad: "別的", pinyin: "bié de", pinyinalt: "bie2 de", zhuyin: "ㄅㄧㄝˊ ㄉㄜ˙", meaning: "else, other" , audio: "../audio/zh-.mp3"},
+		{ simp:"别的", trad: "別的", pinyin: "bié de", pinyinalt: "bie2 de", zhuyin: "ㄅㄧㄝˊ ㄉㄜ˙", meaning: "else, other"},
 		{ simp:"别人", trad: "別人", pinyin: "bié rén", pinyinalt: "bie2 ren2", zhuyin: "ㄅㄧㄝˊ ㄖㄣˊ", meaning: "other people, others, other person" },
 		{ simp:"病", trad: "病", pinyin: "bìng", pinyinalt: "bing4", zhuyin: "ㄅㄧㄥˋ", meaning: "ailment, sickness, illness, disease" },
 		{ simp:"病人", trad: "病人", pinyin: "bìng rén", pinyinalt: "bing4 ren2", zhuyin: "ㄅㄧㄥˋ ㄖㄣˊ", meaning: "sick person, patient" },
@@ -100,30 +100,32 @@ const wordSets = { // 1 - 25
 };
 
 
+
+
 let selectedSets = [];
 let randomSequence = [];
 let currentIndex = 0;
-let currentAudioPath = "";
 
 // Loads the word sets based on selected checkboxes :)
 function loadWordSet(setNumber) {
     if (selectedSets.includes(setNumber)) {
         // Deselect the set
         selectedSets = selectedSets.filter((num) => num !== setNumber);
-    } else {
-        // Selecst the set
+        } 
+	else {
+        // Select the set
         selectedSets.push(setNumber);
-    }
+        }
 
     generateRandomSequence();
     displayWord();
 }
 
 // Generate a random sequence from the selected sets
-function generateRandomSequence() {
+ function generateRandomSequence() {
     const combinedWords = selectedSets.flatMap((setNumber) => wordSets[setNumber] || []);
-    randomSequence = shuffleArray(combinedWords);
-    currentIndex = 0;
+        randomSequence = shuffleArray(combinedWords);
+        currentIndex = 0;
 }
 
 // Shuffle them words randomly :)
@@ -143,16 +145,14 @@ function displayWord() {
         document.getElementById("pinyin").innerText = "";
         document.getElementById("meaning").classList.add("hidden");
         document.getElementById("meaning").innerText = "No words to display";
-		currentAudioPath = "";
         return;
     }
 
     const word = randomSequence[currentIndex];
-    document.getElementById("character").innerText = word.simp;
-    document.getElementById("pinyin").innerText = word.pinyin;
-    document.getElementById("meaning").classList.add("hidden");
-    document.getElementById("meaning").innerText = word.meaning;
-	currentAudioPath = word.audio;
+        document.getElementById("character").innerText = word.simp;
+        document.getElementById("pinyin").innerText = word.pinyin;
+        document.getElementById("meaning").classList.add("hidden");
+        document.getElementById("meaning").innerText = word.meaning;
 }
 
 // This Reveals the meaning :)
@@ -164,13 +164,13 @@ function revealMeaning() {
 function nextWord() {
     if (randomSequence.length === 0) return;
 
-    currentIndex = (currentIndex + 1) % randomSequence.length;
-    displayWord();
+		currentIndex = (currentIndex + 1) % randomSequence.length;
+        displayWord();
 }
 
-function playAudio() {
-    if (currentAudioPath) {
-        var audio = new Audio(currentAudioPath);
-        audio.play();
-    }
+function speak() {
+    const text = document.getElementById('character').innerText;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'zh-CN'; // Set the language to Chinese
+    window.speechSynthesis.speak(utterance);
 }
