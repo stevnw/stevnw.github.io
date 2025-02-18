@@ -3,27 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TTS Example</title>
+    <title>TTS Test</title>
     <script src="mespeak/mespeak.js"></script>
     <script>
         // Initialize meSpeak
         meSpeak.loadConfig("mespeak/mespeak_config.json", function() {
+            console.log("Config loaded.");
             meSpeak.loadVoice("mespeak/voices/zh.json", function() {
                 console.log("Voice loaded successfully.");
-                document.getElementById('speakButton').disabled = false; // Enable button after voice is loaded
+            }, function() {
+                console.error("Failed to load voice.");
             });
         });
     </script>
 </head>
 <body>
-    <h1>中文文本转语音</h1>
-    <button id="speakButton" disabled>朗读</button>
-
-    <script>
-        document.getElementById('speakButton').addEventListener('click', function() {
-            const text = "你好，欢迎使用文本转语音功能！"; // The text you want to read
-            meSpeak.speak(text, { voice: "zh" }); // Specify the voice for Chinese
-        });
-    </script>
+    <h1>Testing meSpeak.js</h1>
 </body>
 </html>
