@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTS Example</title>
+    <script src="mespeak/mespeak.js"></script>
+    <script>
+        // Initialize meSpeak
+        meSpeak.loadConfig("mespeak/mespeak_config.json", function() {
+            meSpeak.loadVoice("mespeak/voices/zh.json", function() {
+                console.log("Voice loaded successfully.");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>中文文本转语音</h1>
+    <button id="speakButton">朗读</button>
+
+    <script>
+        document.getElementById('speakButton').addEventListener('click', function() {
+            const text = "你好，欢迎使用文本转语音功能！"; // The text you want to read
+            meSpeak.speak(text, { voice: "zh" }); // Specify the voice for Chinese
+        });
+    </script>
+</body>
+</html>
