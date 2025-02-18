@@ -10,13 +10,14 @@
         meSpeak.loadConfig("mespeak/mespeak_config.json", function() {
             meSpeak.loadVoice("mespeak/voices/zh.json", function() {
                 console.log("Voice loaded successfully.");
+                document.getElementById('speakButton').disabled = false; // Enable button after voice is loaded
             });
         });
     </script>
 </head>
 <body>
     <h1>中文文本转语音</h1>
-    <button id="speakButton">朗读</button>
+    <button id="speakButton" disabled>朗读</button>
 
     <script>
         document.getElementById('speakButton').addEventListener('click', function() {
