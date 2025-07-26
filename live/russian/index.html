@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Russian</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        .trainer-container {
+            background-color: white;
+            padding: 40px 30px;
+            border: 2px solid black;
+            box-sizing: border-box;
+            width: 90%;
+            max-width: 500px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        #current-char-display {
+            font-size: 8em;
+            color: black;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 10px;
+            min-height: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        #latin-sound-overlay {
+            position: absolute;
+            font-size: 0.3em;
+            color: black;
+            bottom: -0.5em;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+            pointer-events: none;
+        }
+
+        #answer-input {
+            padding: 15px;
+            font-size: 1.5em;
+            width: calc(100% - 30px);
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            text-align: center;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        #score-display {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: black;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: white;
+        }
+
+        td[data-char] {
+            font-size: 1.2em;
+        }
+
+        .latin-sound {
+            display: block;
+            font-size: 0.5em;
+            margin-top: 5px;
+            color: #666;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.5);
+            margin: 0 auto;
+            display: block;
+        }
+
+        #toggle-table-btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 0;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            transition: background-color 0.1s, color 0.1s;
+        }
+
+        #toggle-table-btn:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="trainer-container">
+        <div id="current-char-display">
+            <span id="russian-char"></span>
+            <span id="latin-sound-overlay"></span>
+        </div>
+        <input type="text" id="answer-input" autofocus>
+        <div id="score-display">0/0</div>
+    </div>
+
+    <button id="toggle-table-btn">Hide Table</button>
+
+    <div class="container" id="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Character/Sound</th>
+                    <th>Character/Sound</th>
+                    <th>Character/Sound</th>
+                    <th>Character/Sound</th>
+                    <th>Select Row</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-char="А а" data-sound="a">А а<span class="latin-sound">a</span></td>
+                    <td data-char="Б б" data-sound="b">Б б<span class="latin-sound">b</span></td>
+                    <td data-char="В в" data-sound="v">В в<span class="latin-sound">v</span></td>
+                    <td data-char="Г г" data-sound="g">Г г<span class="latin-sound">g</span></td>
+                    <td><input type="checkbox" class="row-selector" checked></td>
+                </tr>
+                <tr>
+                    <td data-char="Д д" data-sound="d">Д д<span class="latin-sound">d</span></td>
+                    <td data-char="Е е" data-sound="ye">Е е<span class="latin-sound">ye</span></td>
+                    <td data-char="Ё ё" data-sound="yo">Ё ё<span class="latin-sound">yo</span></td>
+                    <td data-char="Ж ж" data-sound="zh">Ж ж<span class="latin-sound">zh</span></td>
+                    <td><input type="checkbox" class="row-selector"></td>
+                </tr>
+                <tr>
+                    <td data-char="З з" data-sound="z">З з<span class="latin-sound">z</span></td>
+                    <td data-char="И и" data-sound="i">И и<span class="latin-sound">i</span></td>
+                    <td data-char="Й й" data-sound="y">Й й<span class="latin-sound">y</span></td>
+                    <td data-char="К к" data-sound="k">К к<span class="latin-sound">k</span></td>
+                    <td><input type="checkbox" class="row-selector"></td>
+                </tr>
+                <tr>
+                    <td data-char="Л л" data-sound="l">Л л<span class="latin-sound">l</span></td>
+                    <td data-char="М м" data-sound="m">М м<span class="latin-sound">m</span></td>
+                    <td data-char="Н н" data-sound="n">Н н<span class="latin-sound">n</span></td>
+                    <td data-char="О о" data-sound="o">О о<span class="latin-sound">o</span></td>
+                    <td><input type="checkbox" class="row-selector"></td>
+                </tr>
+                <tr>
+                    <td data-char="П п" data-sound="p">П п<span class="latin-sound">p</span></td>
+                    <td data-char="Р р" data-sound="r">Р р<span class="latin-sound">r</span></td>
+                    <td data-char="С с" data-sound="s">С с<span class="latin-sound">s</span></td>
+                    <td data-char="Т т" data-sound="t">Т т<span class="latin-sound">t</span></td>
+                    <td><input type="checkbox" class="row-selector"></td>
+                </tr>
+                <tr>
+                    <td data-char="У у" data-sound="oo">У у<span class="latin-sound">oo</span></td>
+                    <td data-char="Ф ф" data-sound="f">Ф ф<span class="latin-sound">f</span></td>
+                    <td data-char="Х х" data-sound="kh">Х х<span class="latin-sound">kh</span></td>
+                    <td data-char="Ц ц" data-sound="ts">Ц ц<span class="latin-sound">ts</span></td>
+                    <td><input type="checkbox" class="row-selector"></td>
+                </tr>
+                <tr>
+                    <td data-char="Ч ч" data-sound="ch">Ч ч<span class="latin-sound">ch</span></td>
+                    <td data-char="Ш ш" data-sound="sh">Ш ш<span class="latin-sound">sh</span></td>
+                    <td data-char="Щ щ" data-sound="shsh">Щ щ<span class="latin-sound">shsh</span></td>
+                    <td data-char="Ы ы" data-sound="i">Ы ы<span class="latin-sound">i</span></td>
+                    <td><input type="checkbox" class="row-selector"></td>
+                </tr>
+                <tr>
+                    <td data-char="Э э" data-sound="e">Э э<span class="latin-sound">e</span></td>
+                    <td data-char="Ю ю" data-sound="yu">Ю ю<span class="latin-sound">yu</span></td>
+                    <td data-char="Я я" data-sound="ya">Я я<span class="latin-sound">ya</span></td>
+                    <td></td>
+                    <td><input type="checkbox" class="row-selector"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const alphabetData = [
+            { char: 'А а', sound: 'a' }, { char: 'Б б', sound: 'b' }, { char: 'В в', sound: 'v' }, { char: 'Г г', sound: 'g' },
+            { char: 'Д д', sound: 'd' }, { char: 'Е е', sound: 'ye' }, { char: 'Ё ё', sound: 'yo' }, { char: 'Ж ж', sound: 'zh' },
+            { char: 'З з', sound: 'z' }, { char: 'И и', sound: 'i' }, { char: 'Й й', sound: 'y' }, { char: 'К к', sound: 'k' },
+            { char: 'Л л', sound: 'l' }, { char: 'М м', sound: 'm' }, { char: 'Н н', sound: 'n' }, { char: 'О о', sound: 'o' },
+            { char: 'П п', sound: 'p' }, { char: 'Р р', sound: 'r' }, { char: 'С с', sound: 's' }, { char: 'Т т', sound: 't' },
+            { char: 'У у', sound: 'oo' }, { char: 'Ф ф', sound: 'f' }, { char: 'Х х', sound: 'kh' }, { char: 'Ц ц', sound: 'ts' },
+            { char: 'Ч ч', sound: 'ch' }, { char: 'Ш ш', sound: 'sh' }, { char: 'Щ щ', sound: 'shsh' }, { char: 'Ы ы', sound: 'i' },
+            { char: 'Э э', sound: 'e' }, { char: 'Ю ю', sound: 'yu' }, { char: 'Я я', sound: 'ya' }
+        ];
+
+        let currentCharacter = null;
+        let correctAnswers = 0;
+        let totalAttempts = 0;
+        let activeCharacters = [];
+        let lastCharacterIndex = -1;
+
+        const russianCharDisplay = document.getElementById('russian-char');
+        const latinSoundOverlay = document.getElementById('latin-sound-overlay');
+        const answerInput = document.getElementById('answer-input');
+        const scoreDisplay = document.getElementById('score-display');
+        const rowSelectors = document.querySelectorAll('.row-selector');
+        const toggleTableBtn = document.getElementById('toggle-table-btn');
+        const tableContainer = document.getElementById('table-container');
+
+        function updateScoreDisplay() {
+            scoreDisplay.textContent = `${correctAnswers}/${totalAttempts}`;
+        }
+
+        function populateActiveCharacters() {
+            activeCharacters = [];
+            rowSelectors.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    const rowCells = checkbox.closest('tr').querySelectorAll('td[data-char]');
+                    rowCells.forEach(cell => {
+                        activeCharacters.push({
+                            char: cell.dataset.char,
+                            sound: cell.dataset.sound
+                        });
+                    });
+                }
+            });
+            displayCharacter();
+        }
+
+        function getRandomCharacterFromActive() {
+            if (activeCharacters.length === 0) {
+                return null;
+            }
+            if (activeCharacters.length === 1) {
+                return activeCharacters[0];
+            }
+            let randomIndex;
+            let attempts = 0;
+            const maxAttempts = 10;
+            do {
+                randomIndex = Math.floor(Math.random() * activeCharacters.length);
+                attempts++;
+            } while (randomIndex === lastCharacterIndex && attempts < maxAttempts);
+            lastCharacterIndex = randomIndex;
+            return activeCharacters[randomIndex];
+        }
+
+        function displayCharacter() {
+            if (activeCharacters.length === 0) {
+                russianCharDisplay.textContent = '-';
+                latinSoundOverlay.textContent = '';
+                latinSoundOverlay.style.opacity = 0;
+                answerInput.value = '';
+                answerInput.disabled = true;
+                return;
+            }
+            answerInput.disabled = false;
+            currentCharacter = getRandomCharacterFromActive();
+            russianCharDisplay.textContent = currentCharacter.char;
+            latinSoundOverlay.textContent = currentCharacter.sound;
+            latinSoundOverlay.style.opacity = 0;
+            answerInput.value = '';
+            answerInput.focus();
+        }
+
+        function checkAnswer() {
+            if (!currentCharacter) {
+                return;
+            }
+            const userAnswer = answerInput.value.trim().toLowerCase();
+            const correctAnswer = currentCharacter.sound.toLowerCase();
+
+            totalAttempts++;
+
+            if (userAnswer === correctAnswer) {
+                correctAnswers++;
+                displayCharacter();
+            } else {
+                latinSoundOverlay.style.opacity = 1;
+                answerInput.value = '';
+                answerInput.focus();
+            }
+            updateScoreDisplay();
+        }
+
+        rowSelectors.forEach(checkbox => {
+            checkbox.addEventListener('change', populateActiveCharacters);
+        });
+
+        toggleTableBtn.addEventListener('click', function() {
+            tableContainer.classList.toggle('hidden');
+            if (tableContainer.classList.contains('hidden')) {
+                toggleTableBtn.textContent = 'Show Table';
+            } else {
+                toggleTableBtn.textContent = 'Hide Table';
+            }
+        });
+
+        answerInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            rowSelectors[0].checked = true;
+            populateActiveCharacters();
+            updateScoreDisplay();
+        });
+    </script>
+
+</body>
+</html>
