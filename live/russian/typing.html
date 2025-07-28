@@ -153,12 +153,92 @@
             if (!currentCharacter) {
                 return;
             }
-            const userAnswer = answerInput.value.trim().toLowerCase();
-            const correctAnswer = currentCharacter.char.split(' ')[0].toLowerCase();
+            const userAnswerLower = answerInput.value.trim().toLowerCase();
+            const correctCyrillicCharLower = currentCharacter.char.split(' ')[0].toLowerCase();
+            const correctSoundEquivalent = currentCharacter.sound.toLowerCase();
 
             totalAttempts++;
 
-            if (userAnswer === correctAnswer) {
+            let isCorrect = false;
+
+            if (userAnswerLower === correctCyrillicCharLower) {
+                isCorrect = true;
+            } else {
+                switch (correctCyrillicCharLower) {
+                    case 'ы':
+                        if (userAnswerLower === 'y' || userAnswerLower === 'i') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'е':
+                        if (userAnswerLower === 'e' || userAnswerLower === 'ye') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'ё':
+                        if (userAnswerLower === 'yo' || userAnswerLower === 'io' || userAnswerLower === 'o') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'ю':
+                        if (userAnswerLower === 'yu' || userAnswerLower === 'iu' || userAnswerLower === 'u') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'я':
+                        if (userAnswerLower === 'ya' || userAnswerLower === 'ia' || userAnswerLower === 'a') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'ж':
+                        if (userAnswerLower === 'zh' || userAnswerLower === 'j') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'ч':
+                        if (userAnswerLower === 'ch') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'ш':
+                        if (userAnswerLower === 'sh') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'щ':
+                        if (userAnswerLower === 'shsh' || userAnswerLower === 'sch' || userAnswerLower === 'shch') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'х':
+                        if (userAnswerLower === 'kh' || userAnswerLower === 'h') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'ц':
+                        if (userAnswerLower === 'ts' || userAnswerLower === 'c') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'й':
+                        if (userAnswerLower === 'y' || userAnswerLower === 'i') {
+                            isCorrect = true;
+                        }
+                        break;
+                    case 'э':
+                        if (userAnswerLower === 'e' || userAnswerLower === 'eh') {
+                            isCorrect = true;
+                        }
+                        break;
+                    default:
+                        if (userAnswerLower === correctSoundEquivalent) {
+                            isCorrect = true;
+                        }
+                        break;
+                }
+            }
+
+            if (isCorrect) {
                 correctAnswers++;
                 characterIndex++;
                 if (characterIndex >= shuffledCharacters.length) {
