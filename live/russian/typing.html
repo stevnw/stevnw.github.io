@@ -161,7 +161,7 @@
             let isCorrect = false;
 
             if (correctCyrillicCharLower === 'ы') {
-                if (userAnswerLower === 'ы' || userAnswerLower === 'y' || userAnswerLower === 'i') {
+                if (userAnswerLower === 'ы' || userAnswerLower === 'ы'.toUpperCase()) {
                     isCorrect = true;
                 }
             } else if (userAnswerLower === correctCyrillicCharLower) {
