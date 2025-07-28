@@ -153,18 +153,14 @@
             if (!currentCharacter) {
                 return;
             }
-            const userAnswerLower = answerInput.value.trim().toLowerCase();
-            const correctCyrillicCharLower = currentCharacter.char.split(' ')[0].toLowerCase();
+            const userAnswer = answerInput.value.trim();
+            const correctCyrillicChar = currentCharacter.char.split(' ')[0];
             
             totalAttempts++;
 
             let isCorrect = false;
 
-            if (correctCyrillicCharLower === 'ы') {
-                if (userAnswerLower === 'ы' || userAnswerLower === 'ы'.toUpperCase()) {
-                    isCorrect = true;
-                }
-            } else if (userAnswerLower === correctCyrillicCharLower) {
+            if (userAnswer.toLowerCase() === correctCyrillicChar.toLowerCase()) {
                 isCorrect = true;
             }
 
