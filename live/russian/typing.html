@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Russian Keyboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        .trainer-container {
+            background-color: white;
+            padding: 40px 30px;
+            border: 2px solid black;
+            box-sizing: border-box;
+            width: 90%;
+            max-width: 500px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        #current-char-display {
+            font-size: 8em;
+            color: black;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 10px;
+            min-height: 1.5em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #russian-char {
+            font-size: 1em;
+            color: black;
+            margin-bottom: 0.1em;
+        }
+
+        #latin-sound {
+            font-size: 0.3em;
+            color: black;
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        #answer-input {
+            padding: 15px;
+            font-size: 1.5em;
+            width: calc(100% - 30px);
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            text-align: center;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        #score-display {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: black;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="trainer-container">
+        <div id="current-char-display">
+            <span id="russian-char"></span>
+            <span id="latin-sound"></span>
+        </div>
+        <input type="text" id="answer-input" autofocus>
+        <div id="score-display">0/0</div>
+    </div>
+
+    <script>
+        const alphabetData = [
+            { char: 'А а', sound: 'a' }, { char: 'Б б', sound: 'b' }, { char: 'В в', sound: 'v' }, { char: 'Г г', sound: 'g' },
+            { char: 'Д д', sound: 'd' }, { char: 'Е е', sound: 'ye' }, { char: 'Ё ё', sound: 'yo' }, { char: 'Ж ж', sound: 'zh' },
+            { char: 'З з', sound: 'z' }, { char: 'И и', sound: 'i' }, { char: 'Й й', sound: 'y' }, { char: 'К к', sound: 'k' },
+            { char: 'Л л', sound: 'l' }, { char: 'М м', sound: 'm' }, { char: 'Н н', sound: 'n' }, { char: 'О о', sound: 'o' },
+            { char: 'П п', sound: 'p' }, { char: 'Р р', sound: 'r' }, { char: 'С с', sound: 's' }, { char: 'Т т', sound: 't' },
+            { char: 'У у', sound: 'oo' }, { char: 'Ф ф', sound: 'f' }, { char: 'Х х', sound: 'kh' }, { char: 'Ц ц', sound: 'ts' },
+            { char: 'Ч ч', sound: 'ch' }, { char: 'Ш ш', sound: 'sh' }, { char: 'Щ щ', sound: 'shsh' }, { char: 'Ы ы', sound: 'i' },
+            { char: 'Э э', sound: 'e' }, { char: 'Ю ю', sound: 'yu' }, { char: 'Я я', sound: 'ya' }
+        ];
+
+        let currentCharacter = null;
+        let correctAnswers = 0;
+        let totalAttempts = 0;
+        let shuffledCharacters = [];
+        let characterIndex = 0;
+
+        const russianCharDisplay = document.getElementById('russian-char');
+        const latinSoundDisplay = document.getElementById('latin-sound');
+        const answerInput = document.getElementById('answer-input');
+        const scoreDisplay = document.getElementById('score-display');
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function initializeTrainer() {
+            shuffledCharacters = shuffleArray([...alphabetData]);
+            characterIndex = 0;
+            correctAnswers = 0;
+            totalAttempts = 0;
+            displayCharacter();
+            updateScoreDisplay();
+        }
+
+        function displayCharacter() {
+            if (shuffledCharacters.length === 0) {
+                russianCharDisplay.textContent = '-';
+                latinSoundDisplay.textContent = '';
+                answerInput.value = '';
+                answerInput.disabled = true;
+                return;
+            }
+
+            answerInput.disabled = false;
+            currentCharacter = shuffledCharacters[characterIndex];
+            russianCharDisplay.textContent = currentCharacter.char;
+            latinSoundDisplay.textContent = currentCharacter.sound;
+            answerInput.value = '';
+            answerInput.focus();
+        }
+
+        function checkAnswer() {
+            if (!currentCharacter) {
+                return;
+            }
+            const userAnswer = answerInput.value.trim().toLowerCase();
+            const correctAnswer = currentCharacter.char.split(' ')[0].toLowerCase();
+
+            totalAttempts++;
+
+            if (userAnswer === correctAnswer) {
+                correctAnswers++;
+                characterIndex++;
+                if (characterIndex >= shuffledCharacters.length) {
+                    initializeTrainer();
+                } else {
+                    displayCharacter();
+                }
+            } else {
+                answerInput.value = '';
+                answerInput.focus();
+            }
+            updateScoreDisplay();
+        }
+
+        function updateScoreDisplay() {
+            scoreDisplay.textContent = `${correctAnswers}/${totalAttempts}`;
+        }
+
+        answerInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTrainer();
+        });
+    </script>
+
+</body>
+</html>
